@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantina Chichilo - Pago</title>
+    
+    <link rel="stylesheet" href="Public/css/pagar.css">
+
+    <link rel="stylesheet" href="Public/css/navbar.css">
+
+    
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="sticky-header">
+        <div class="header-container">
+            
+            <a href="#" id="back-to-menu" class="back-button">
+                <i class="fi fi-rr-arrow-left"></i>
+                <span>Regresar al menú</span>
+            </a>
+            
+            <img src="Imagenes/Logo3.png" alt="Cantina Chichilo" class="logo">
+        
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="false">
+                <span class="icon-light" aria-hidden="true">🌙</span>
+                <span class="icon-dark" aria-hidden="true">☀️</span>
+            </button>
+            
+        </div>
+    </div>
+
+    <div class="payment-container">
+        <main class="payment-main">
+            <div class="left-column">
+                <!-- Sección de dirección -->
+                <section class="delivery-section">
+                    <h2>Dirección de entrega</h2>
+                    <input type="text" placeholder="Agrega tu dirección" class="address-input">
+                </section>
+
+                <!-- Sección de método de pago -->
+                <section class="payment-method">
+                    <h2>Método de pago</h2>
+                    <div class="payment-option">
+                        <span class="pagar">Pago en efectivo</span>
+                    </div>
+                </section>
+
+                <!-- Sección de restaurante y productos -->
+                <section class="restaurant-info">
+                    <h2>Tu pedido</h2>
+                    <!-- Los productos del carrito se insertarán aquí dinámicamente -->
+                </section>
+
+                <!-- Sección de comentarios -->
+                <section class="comments-section">
+                    <h2>Comentarios</h2>
+                    <textarea placeholder="Notas especiales (opcional)" class="comments-input"></textarea>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="order-summary">
+                    <div class="summary-content">
+                        <!-- Solo el título aquí, el resto lo genera JS -->
+                        <h2>Resumen del pedido</h2>
+                    </div>
+
+                        <!-- <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span>$0.00</span>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Envío</span>
+                            <span>$30.00</span>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Tarifa de servicio</span>
+                            <span>$15.00</span>
+                        </div>
+
+                        <div class="summary-item total">
+                            <span>Total</span>
+                            <span>$0.00</span>
+                        </div>
+                        
+                        <div class="total-display">
+                            <span>Total: $0.00</span>
+                        </div>
+                    </div> -->
+                    
+                <div class="order-actions">
+                    <div class="total-display">
+                        <span>Total: $0.00</span>
+                    </div>
+                    <button class="place-order-btn">Pedir ahora</button>
+                </div>
+            </section>
+        </div>
+
+        <nav class="sticky-nav">
+            <a href="menu.html"><i class="fi fi-rr-beer"></i> Pedir aquí</a>
+            <a href="#"><i class="fi fi-rr-beer"></i> Pedir aquí</a>
+            <a href="#" class="sticky-cart-btn"><i class="fi fi-rr-shopping-cart"></i> Carrito</a>
+            <a href="#"><i class="fi fi-rr-user"></i> Cuenta</a>
+        </nav>
+
+
+        </main>
+    </div>
+
+    <script src="Public/js/pagar.js"></script>
+    <script src="Public/js/accesibilidad.js"></script>
+    
+</body>
+</html>

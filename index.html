@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantina Chichilo</title>
+    
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="Public/css/sinCuentaOverlay.css">
+
+    <link rel="stylesheet" href="Public/css/theme-toggle.css">
+
+    <link rel="stylesheet" href="Public/css/inicio.css">
+
+    <link rel="stylesheet" href="Public/css/overlayPerfil.css">
+
+    <link rel="stylesheet" href="Public/css/overlayProducto.css">
+
+    <link rel="stylesheet" href="Public/css/overlayCarrito.css">
+
+    <link rel="stylesheet" href="Public/css/navbar.css">
+
+    <link rel="stylesheet" href="Public/css/footer.css">
+
+    <link rel="stylesheet" href="Public/css/drop_menu.css">
+    
+    <link rel="stylesheet" href="Public/css/main.css">
+
+    <link rel="stylesheet" href="Public/css/noticarrito.css">
+
+
+</head>
+
+<body>
+
+    <div class="fondo">
+
+        <!-- esto es para el menu hamburguesa -->
+        <header>
+            <div class="menu-icon" id="menuIcon">&#9776;</div>
+
+            <div class="logo">
+                <img src="Imagenes/Logo3.png" alt="Cantina Chichilo">
+            </div>
+
+            <div class="menu-text" id="menuText">
+                <a href="menu.html">Menú</a>
+            </div>
+
+            <div class="carrito-text">Carrito</div>
+
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <h3>Menú Principal</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#contacto">Contactanos</a></li>
+                    <li><a href="nuevacuenta.html">Nueva Cuenta</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Página principal -->
+        <main>
+            <!-- Sección de promoción -->
+            <section class="promo">
+                <div class="contenido-centrado">
+                    <h2 class="food-title">Quinotos al Rhum con Helado</h2>
+                    <p class="subtitulo">¡Dale un gusto a tu día, con cada cucharada de felicidad!</p>
+                    <button class="ordenar-btn" 
+                            data-producto="Quinotos al Rhum con Helado"
+                            data-descripcion="Deliciosos quinotos bañados en rhum con una bola de helado de vainilla"
+                            data-precio="119">Ordenar aquí</button>
+                </div>
+                <div class="imagen-izquierda">
+                    <img src="Imagenes/Helado.png" alt="Helado">
+                </div>
+            </section>
+            
+            <section class="promo">
+                <div class="contenido-centrado">
+                    <h2 class="food-title">Todos los días desde <span>$129</span></h2>
+                    <p class="subtitulo">Disfruta de nuestros desayunos especiales</p>
+                    <button class="ordenar-btn" 
+                            data-producto="Desayunos especiales"
+                            data-descripcion="Selección de nuestros mejores desayunos tradicionales"
+                            data-precio="129">Ordenar aquí</button>
+                </div>
+                <div class="imagen-izquierda">
+                    <img src="Imagenes/Mac.png" alt="Desayuno">
+                </div>
+            </section>
+            
+            <section class="promo">
+                <div class="contenido-centrado">
+                    <h2 class="food-title">Clásicos de la casa</h2>
+                    <p class="subtitulo">Sabor que une</p>
+                    <button class="ordenar-btn" 
+                            data-producto="Clásicos de la casa"
+                            data-descripcion="Nuestros platillos más tradicionales y populares"
+                            data-precio="149">Ordenar aquí</button>
+                </div>
+                <div class="imagen-izquierda">
+                    <img src="Imagenes/Sopa.png" alt="Comida">
+                </div>
+            </section>
+        </main>
+    </div>
+
+<!-- Overlay del menú de producto -->
+<div class="product-overlay" id="productOverlay">
+    <div class="product-details">
+        <button class="close-btn" id="closeProductBtn">&times;</button>
+        <h2 id="productTitle"></h2>
+        <p id="productDescription"></p>
+        <div class="quantity-selector">
+            <button class="quantity-btn minus">-</button>
+            <span id="productQuantity">1</span>
+            <button class="quantity-btn plus">+</button>
+        </div>
+        <div class="price-section">
+            <span class="total-price" id="productPrice"></span>
+            <div class="action-buttons">
+                <button class="add-to-cart-btn">Agregar al carrito</button>
+                <button class="pay-btn">Pagar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Overlay del carrito -->
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart-container">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+
+            <div class="closecart-btn">
+                <button class="close-cart-btn" id="closeCartBtn">&times;</button>
+            </div>
+        </div>
+        
+        <!-- Este contenedor ESTARÁ VACÍO y se llenará con JS -->
+        <div class="cart-content" id="cartStateContainer">
+            <!-- Cuando hay items -->
+            <div class="cart-items-container">
+                <div class="cart-item">
+                <!-- contenido del item -->
+                </div>
+                <!-- más items... -->
+            </div>
+
+            <!-- Resumen siempre abajo -->
+            <div class="cart-summary">
+                <!-- contenido del resumen -->
+            </div>
+
+            <!-- 
+                JavaScript decidirá si poner aquí:
+                1. Solo el mensaje de "carrito vacío", O
+                2. Los items + el resumen
+            -->
+                
+            <!-- Cuando está vacío -->
+            <div class="empty-cart-message">
+                <!-- mensaje de carrito vacío -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Overlay del perfil -->
+<div class="profile-overlay" id="profileOverlay">
+    <div class="profile-container">
+        <div class="profile-header">
+
+            <div class="closeprofile-btn">
+            <button class="close-profile-btn" id="closeProfileBtn">&times;</button>
+            </div>
+
+            <h2>Mi perfil</h2>
+        </div>
+        
+        <div class="profile-content">
+            <div class="profile-field">
+                <span class="field-label">Nombre</span>
+                <span class="field-value" id="profileNombre"></span>
+            </div>
+            
+            <div class="profile-field">
+                <span class="field-label">Correo electrónico</span>
+                <span class="field-value" id="profileEmail"></span>
+            </div>
+            
+            <div class="profile-field">
+                <span class="field-label">Teléfono</span>
+                <span class="field-value" id="profileTelefono"></span>
+            </div>
+            
+            <div class="logout-btn">
+                <button class="logoutbtn" id="logoutBtn">Cerrar sesión</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Overlay para usuarios no registrados -->
+<div class="unregistered-overlay" id="unregisteredOverlay">
+    <div class="unregistered-container">
+        <h3>¡Espera un momento!</h3>
+        <p>Para realizar un pago necesitas tener una cuenta registrada. ¿Deseas crear una cuenta ahora?</p>
+        <div class="unregistered-buttons">
+            <button class="unregistered-btn primary" id="createAccountBtn">Sí, crear cuenta</button>
+            <button class="unregistered-btn secondary" id="continueAsGuestBtn">Continuar como invitado</button>
+        </div>
+    </div>
+</div>
+
+    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="false">
+        <span class="icon-light" aria-hidden="true">🌙</span>
+        <span class="icon-dark" aria-hidden="true">☀️</span>
+    </button>
+
+    <!-- Sticky Navbar en la parte inferior -->
+    <nav class="sticky-nav">
+        <a href="#"><i class="fi fi-rr-home"></i> Inicio</a>
+        <a href="menu.html"><i class="fi fi-rr-beer"></i> Pedir aquí</a>
+        <a href="#" class="sticky-cart-btn"><i class="fi fi-rr-shopping-cart"></i> Carrito</a>
+        <a href="nuevacuenta.html"><i class="fi fi-rr-user"></i> Cuenta</a>
+    </nav>
+
+    <footer id="contacto">
+        <div class="footer-container">
+            
+            <div class="contact-sections">
+                <div class="contact-section">
+                    <h3>Contáctanos</h3>
+                    <p><i class="fas fa-phone"></i> +52 1234567890</p>
+                    <p><i class="fas fa-envelope"></i> ejemplo@gmail.com</p>
+                </div>
+                
+                <div class="contact-section">
+                    <h3>Dirección</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Ejemplo #00</p>
+                    <p>Veracruz, México</p>
+                </div>
+                
+                <div class="contact-section">
+                    <h3>Horario</h3>
+                    <p><i class="fas fa-clock"></i> Lunes - Sábado</p>
+                    <p>7:00 am - 10:00 pm</p>
+                    <p><i class="fas fa-clock"></i> Domingo</p>
+                    <p>7:00 am - 8:00 pm</p>
+                </div>
+            </div>
+            
+            <p class="copyright">©2025 Creado por Alondra Garza</p>
+        </div>
+    </footer>
+    
+    <script src="Public/js/app-storage.js"></script>
+    <script src="Public/js/inicio.js"></script>
+    <script src="Public/js/accesibilidad.js"></script>
+
+
+</body>
+</html>

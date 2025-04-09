@@ -1,0 +1,190 @@
+:root {
+    /* Colores del modo claro */
+    --color-background: #FAF5E1;
+    --color-primary: #5A2E1B;
+    --color-accent: #3399CC;
+    --color-yellow-light: #E6B800;
+    --color-yellow-dark: #CC9F00;
+
+    /* Colores del modo oscuro */
+    --color-background-dark: #2d2d2d;
+    --color-primary-dark: #7A4C2E; /* Café ligeramente más claro */
+    --color-accent-dark: #4D87D0; /* Azul ajustado para mejor visibilidad */
+    --color-yellow-dark: #F1C200; /* Amarillo claro ajustado */
+    --color-yellow-dark-dark: #C78A00; /* Amarillo oscuro ajustado */
+
+    /* Colores adicionales */
+    --color-white: white;
+    --color-gray: #eeeeee;
+    --color-gray-medium: #DDDDDD;
+    --color-border: #c5c5c5;
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
+
+    /* Colores adicionales para el modo oscuro */
+    --color-border-dark: #5c5c5c;
+    --color-background-button-dark: #2d2d2d;
+    --color-button-hover-dark: #3d3d3d;
+}
+
+/* Profile Overlay Styles */
+.profile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.profile-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.profile-container {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.profile-overlay.active .profile-container {
+    transform: translateY(0);
+}
+
+.profile-header {
+    padding: 20px;
+    border-bottom: 2px solid var(--color-gray-medium);
+    text-align: center;
+    position: relative;
+}
+
+.profile-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-accent);
+}
+
+.profile-content {
+    padding: 20px;
+}
+
+.profile-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-gray-medium);
+}
+
+.field-label {
+    font-weight: 500;
+    color: #333;
+    font-size: 16px;
+}
+
+.field-value {
+    color: #666;
+    font-size: 16px;
+}
+
+.logoutbtn {
+    background-color: var(--color-yellow-light);
+    padding: 12px 50px;
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+
+}
+
+.logoutbtn:hover {
+    background-color: var(--color-yellow-dark)
+}
+
+.closeprofile-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+}
+
+.close-profile-btn {
+    background: none !important;
+    border: none !important;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.close-profile-btn:hover {
+    color: #333;
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.dark-mode .profile-header h2 {
+    color: var(--color-accent-dark);
+}
+
+.dark-mode .logoutbtn {
+    background-color: var(--color-yellow-dark);
+}
+
+.dark-mode .logoutbtn:hover {
+    background-color: var(--color-yellow-dark-dark)
+}
+
+/* Estilos para modo oscuro */
+.dark-mode .close-profile-btn {
+    color: #B0B0B0;
+}
+
+.dark-mode .close-profile-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .close-profile-btn {
+    color: #B0B0B0;
+}
+
+.dark-mode .profile-field,
+.dark-mode .profile-header {
+    border-bottom: 1px solid var(--color-border-dark);
+    
+}
+
+.dark-mode .field-label {
+    color: #E0E0E0;
+}
+
+.dark-mode .field-value {
+    color: #B0B0B0;
+}
+
+/* Estilos para modo oscuro */
+.dark-mode .profile-container {
+    background-color: #2D2D2D;
+    border-color: #4A3C2A;
+}

@@ -1,0 +1,121 @@
+:root {
+    /* Colores del modo claro */
+    --color-background: #FAF5E1;
+    --color-primary: #5A2E1B;
+    --color-accent: #3399CC;
+    --color-accent-hover: #2B80AD;
+    --color-yellow-light: #E6B800;
+    --color-yellow-light-dark: #B38A00;
+
+    /* Colores del modo oscuro */
+    --color-background-dark: #1a1a1a;
+    --color-header-dark: #2d2d2d;
+    --color-primary-dark: #7A4C2E;
+    --color-accent-dark: #4D87D0;
+    --color-yellow-dark: #F1C200;
+    --color-yellow-dark-dark: #C78A00;
+
+    /* Colores adicionales */
+    --color-white: white;
+    --color-gray: #eeeeee;
+    --color-gray-medium: #DDDDDD;
+    --color-border: #c5c5c5;
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
+
+    /* Colores adicionales para el modo oscuro */
+    --color-border-dark: #5c5c5c;
+    --color-background-button-dark: #2d2d2d;
+    --color-button-hover-dark: #3d3d3d;
+}
+
+
+/* Footer mejorado */
+footer {
+    background: linear-gradient(135deg, var(--color-yellow-light) 0%, var(--color-yellow-dark) 100%);
+    color: var(--color-primary);
+    padding: 40px 20px 60px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    border-top: 3px solid var(--color-primary);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.contact-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 15px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.contact-section h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-primary);
+}
+
+.contact-section p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Modo oscuro */
+.dark-mode footer {
+    background: linear-gradient(135deg, var(--color-yellow-dark) 0%, var(--color-yellow-dark-dark) 100%);
+}
+
+.dark-mode .contact-section {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-sections {
+        flex-direction: column;
+    }
+    
+    .footer-container {
+
+        padding-bottom: 50px;
+    }
+
+}

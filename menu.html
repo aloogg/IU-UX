@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="Menu">Nuestro Menú</title>
+
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="Public/css/navbar.css">
+
+
+    <link rel="stylesheet" href="Public/css/sinCuentaOverlay.css">
+
+    <link rel="stylesheet" href="Public/css/menu.css">
+
+    <link rel="stylesheet" href="Public/css/menu_categoria.css">
+
+    <link rel="stylesheet" href="Public/css/overlayProducto.css">
+
+
+
+    <link rel="stylesheet" href="Public/css/theme-toggle.css">
+
+    <link rel="stylesheet" href="Public/css/overlayPerfil.css">
+
+    <link rel="stylesheet" href="Public/css/overlayCarrito.css">
+
+    <link rel="stylesheet" href="Public/css/noticarrito.css">
+
+
+    <link rel="stylesheet" href="Public/css/drop_menu.css">
+
+
+
+</head>
+<body>
+
+    <!-- esto es para el menu hamburguesa -->
+
+    <header>
+        <div class="icons-header">
+            <div class="menu-icon" id="menuIcon">&#9776;</div>
+
+            <div class="logo">
+                <img src="Imagenes/Logo3.png" alt="Cantina Chichilo">
+            </div>
+    
+            <div class="menu-text" id="menuText">
+                <a href="menu.html">Menú</a>
+            </div>
+    
+            <div class="carrito-text">Carrito</div>
+    
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <h3>Menú Principal</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#contacto">Contactanos</a></li>
+                    <li><a href="nuevacuenta.html">Nueva Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+
+    <div class="menu-container">
+        <h1>Nuestro Menú</h1>
+        
+        <!-- Pestañas de categorías -->
+
+        <div class="category-tabs-container">
+            <div class="category-tabs">
+            <button class="tab-button active" data-category="entradas">Entradas</button>
+            <button class="tab-button" data-category="menu-del-dia">Menú del día</button>
+            <button class="tab-button" data-category="platos-principales">Platos principales</button>
+            <button class="tab-button" data-category="postres">Postres</button>
+            <button class="tab-button" data-category="bebidas">Bebidas</button>
+        </div>
+
+        <!-- Seccion donde estan las comidas -->
+        <div class="menu-container">
+            
+        <!-- Contenido de categorías -->
+        <div class="category-content active" id="entradas">
+            <div class="menu-items-grid">
+                <!-- Provoleta -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Provoleta.png" alt="Provoleta">
+                    </div>
+                    <div class="item-info">
+                        <h3>Provoleta</h3>
+                        <p>Queso provolone gratinado al horno, servido con orégano y un toque de aceite de oliva.</p>
+                        <span class="price">$120.00</span>
+                        
+                        <button class="ordenar-btn" 
+                        data-producto="Provoleta" 
+                        data-descripcion="Queso provolone gratinado al horno, servido con orégano y un toque de aceite de oliva." 
+                        data-precio="120">Añadir al carrito</button>
+
+                    </div>
+                </div>
+
+                <!-- Empanadas -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Sopa.png" alt="Empanadas">
+                    </div>
+                    <div class="item-info">
+                        <h3>Crema de tomate</h3>
+                        <p>Deliciosa y cremosa sopa de tomate, acompañada de pan.</p>
+                        <span class="price">$109.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Crema de tomate" 
+                        data-descripcion="Deliciosa y cremosa sopa de tomate, acompañada de pan." 
+                        data-precio="109">Añadir al carrito</button>
+
+                    </div>
+                </div>
+                
+                <!-- Salchichas -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Salchichas.png" alt="Salchichas">
+                    </div>
+                    <div class="item-info">
+                        <h3>Salchichas argentinas</h3>
+                        <p>Jugosas salchichas argentinas a la parrilla, servidas con mostaza.</p>
+                        <span class="price">$119.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Salchichas argentinas"
+                        data-descripcion="Jugosas salchichas argentinas a la parrilla, servidas con mostaza."
+                        data-precio="119">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <!-- Menú del día -->
+        <div class="category-content" id="menu-del-dia">
+            <div class="menu-items-grid">
+                <!-- Empanadas -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Empanadas.png" alt="Empanadas">
+                    </div>
+                    <div class="item-info">
+                        <h3>Empanadas de carne</h3>
+                        <p>Deliciosas empanadas rellenas de carne picada, cebolla y especias, horneadas hasta dorarse.</p>
+                        <span class="price">$130.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Empanadas de carne"
+                        data-descripcion="Deliciosas empanadas rellenas de carne picada, cebolla y especias, horneadas hasta dorarse."
+                        data-precio="130">Ordenar aquí</button>
+
+
+
+
+                    </div>
+                </div>
+                
+                <!-- Milanesa -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Empanizado.png" alt="Milanesa">
+                    </div>
+                    <div class="item-info">
+                        <h3>Milanesa a la napolitana</h3>
+                        <p>Cubierto con salsa de tomate y queso gratinado, acompañado de papas fritas.</p>
+                        <span class="price">$139.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Milanesa a la napolitana"
+                        data-descripcion="Filete de carne empanizado, cubierto con salsa de tomate y queso gratinado, acompañado de papas fritas."
+                        data-precio="139">Añadir al carrito</button>
+
+                    </div>
+                </div>
+                
+                <!-- Mac & Cheese -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Mac.png" alt="Mac & Cheese">
+                    </div>
+                    <div class="item-info">
+                        <h3>Mac & Cheese</h3>
+                        <p>Pasta al dente en una cremosa salsa de queso, gratinada al horno para un toque dorado.</p>
+                        <span class="price">$129.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Mac & Cheese"
+                        data-descripcion="Pasta al dente en una cremosa salsa de queso, gratinada al horno para un toque dorado."
+                        data-precio="129">Añadir al carrito</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Platos principales -->
+        <div class="category-content" id="platos-principales">
+            <div class="menu-items-grid">
+                <!-- Carne -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Carne.png" alt="Carne">
+                    </div>
+                    <div class="item-info">
+                        <h3>Lomo a la pimienta</h3>
+                        <p>Tierno lomo de res en salsa de pimienta, sellado a la perfección.</p>
+                        <span class="price">$189.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Lomo a la pimienta"
+                        data-descripcion="Tierno lomo de res en salsa de pimienta."
+                        data-precio="189">Añadir al carrito</button>
+
+                    </div>
+                </div>
+                
+                <!-- Ceviche -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Ceviche.png" alt="Ceviche">
+                    </div>
+                    <div class="item-info">
+                        <h3>Ceviche</h3>
+                        <p>Fresco ceviche de pescado marinado en jugo de limón, con cebolla morada, cilantro y ají.</p>
+                        <span class="price">$159.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Ceviche"
+                        data-descripcion="Fresco ceviche de pescado marinado en jugo de limón, con cebolla morada, cilantro y ají."
+                        data-precio="159">Añadir al carrito</button>
+
+
+                    </div>
+                </div>
+                
+                <!-- Sopa de camarones -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Camaron.png" alt="Sopa de camarones">
+                    </div>
+                    <div class="item-info">
+                        <h3>Sopa de camarones</h3>
+                        <p>Reconfortante sopa de camarones con especias, vegetales y un toque de limón.</p>
+                        <span class="price">$209.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Sopa de camarones"
+                        data-descripcion="Reconfortante sopa de camarones con especias, vegetales y un toque de limón."
+                        data-precio="209">Añadir al carrito</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Postres -->
+        <div class="category-content" id="postres">
+            <div class="menu-items-grid">
+                <!-- Pay -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Pay.png" alt="Pay">
+                    </div>
+                    <div class="item-info">
+                        <h3>Pay de Queso</h3>
+                        <p>Suave y cremoso pay de queso, servido con una bola de helado sabor vainilla.</p>
+                        <span class="price">$109.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Pay de Queso"
+                        data-descripcion="Suave y cremoso pay de queso, servido con una bola de helado sabor vainilla."
+                        data-precio="109">Añadir al carrito</button>
+
+                    </div>
+                </div>
+                
+                <!-- Flan napolitano -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Flan.png" alt="Flan napolitano">
+                    </div>
+                    <div class="item-info">
+                        <h3>Flan Napolitano</h3>
+                        <p>Clásico flan de vainilla, con su característico caramelo dorado.</p>
+                        <span class="price">$129.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Flan Napolitano"
+                        data-descripcion="Clásico flan de vainilla, con su característico caramelo dorado."
+                        data-precio="129">Añadir al carrito</button>
+
+                    </div>
+                </div>
+                
+                <!-- Quinotos al Rhum -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Helado.png" alt="Quinotos al Rhum">
+                    </div>
+                    <div class="item-info">
+                        <h3>Quinotos al Rhum con Helado</h3>
+                        <p>Quinotos confitados en Rhum, acompañados de helado de vainilla.</p>
+                        <span class="price">$119.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Quinotos al Rhum con Helado"
+                        data-descripcion="Quinotos confitados en Rhum, acompañados de helado de vainilla."
+                        data-precio="119">Añadir al carrito</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bebidas -->
+        <div class="category-content" id="bebidas">
+            <div class="menu-items-grid">
+                <!-- Coca -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Coca.png" alt="Coca">
+                    </div>
+                    <div class="item-info">
+                        <h3>Coca-Cola</h3>
+                        <p>Refresco clásico y burbujeante.</p>
+                        <span class="price">$49.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Coca-Cola"
+                        data-descripcion="Refresco clásico y burbujeante."
+                        data-precio="49">Añadir al carrito</button>
+
+                    </div>
+                </div>
+                
+                <!-- Naranjada -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Naranja.png" alt="Naranjada">
+                    </div>
+                    <div class="item-info">
+                        <h3>Naranjada Natural</h3>
+                        <p>Refrescante bebida de naranja natural.</p>
+                        <span class="price">$59.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Naranjada Natural"
+                        data-descripcion="Refrescante bebida de naranja natural."
+                        data-precio="59">Añadir al carrito</button>
+
+                    </div>
+                </div>
+                
+                <!-- Fresa -->
+                <div class="menu-item">
+                    <div class="item-image">
+                        <img src="Imagenes/Fresa.png" alt="Agua de fresa">
+                    </div>
+                    <div class="item-info">
+                        <h3>Agua de Fresa</h3>
+                        <p>Deliciosa agua fresca de fresa.</p>
+                        <span class="price">$69.00</span>
+                        <!-- <button class="add-to-cart">Añadir al carrito</button> -->
+
+                        <button class="ordenar-btn" 
+                        data-producto="Agua de Fresa"
+                        data-descripcion="Deliciosa agua fresca de fresa."
+                        data-precio="69">Añadir al carrito</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay del carrito -->
+    <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-container">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+
+            <div class="closecart-btn">
+                <button class="close-cart-btn" id="closeCartBtn">&times;</button>
+            </div>
+        </div>
+        
+        <!-- Este contenedor ESTARÁ VACÍO y se llenará con JS -->
+        <div class="cart-content" id="cartStateContainer">
+            <!-- Cuando hay items -->
+            <div class="cart-items-container">
+                <div class="cart-item">
+                <!-- contenido del item -->
+                </div>
+                <!-- más items... -->
+            </div>
+
+            <!-- Resumen siempre abajo -->
+            <div class="cart-summary">
+                <!-- contenido del resumen -->
+            </div>
+
+            <!-- 
+                JavaScript decidirá si poner aquí:
+                1. Solo el mensaje de "carrito vacío", O
+                2. Los items + el resumen
+            -->
+                
+            <!-- Cuando está vacío -->
+            <div class="empty-cart-message">
+                <!-- mensaje de carrito vacío -->
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Overlay del menú de producto -->
+    <div class="product-overlay" id="productOverlay">
+        <div class="product-details">
+            <button class="close-btn" id="closeProductBtn">&times;</button>
+            <h2 id="productTitle"></h2>
+            <p id="productDescription"></p>
+            <div class="quantity-selector">
+                <button class="quantity-btn minus">-</button>
+                <span id="productQuantity">1</span>
+                <button class="quantity-btn plus">+</button>
+            </div>
+            <div class="price-section">
+                <span class="total-price" id="productPrice"></span>
+                <div class="action-buttons">
+                    <button class="add-to-cart-btn">Agregar al carrito</button>
+                    <button class="pay-btn">Pagar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay del perfil -->
+    <div class="profile-overlay" id="profileOverlay">
+        <div class="profile-container">
+            <div class="profile-header">
+
+                <div class="closeprofile-btn">
+                <button class="close-profile-btn" id="closeProfileBtn">&times;</button>
+                </div>
+
+                <h2>Mi perfil</h2>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-field">
+                    <span class="field-label">Nombre</span>
+                    <span class="field-value" id="profileNombre"></span>
+                </div>
+                
+                <div class="profile-field">
+                    <span class="field-label">Correo electrónico</span>
+                    <span class="field-value" id="profileEmail"></span>
+                </div>
+                
+                <div class="profile-field">
+                    <span class="field-label">Teléfono</span>
+                    <span class="field-value" id="profileTelefono"></span>
+                </div>
+                
+                <div class="logout-btn">
+                    <button class="logoutbtn" id="logoutBtn">Cerrar sesión</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Overlay para usuarios no registrados -->
+    <div class="unregistered-overlay" id="unregisteredOverlay">
+        <div class="unregistered-container">
+            <h3>¡Espera un momento!</h3>
+            <p>Para realizar un pago necesitas tener una cuenta registrada. ¿Deseas crear una cuenta ahora?</p>
+            <div class="unregistered-buttons">
+                <button class="unregistered-btn primary" id="createAccountBtn">Sí, crear cuenta</button>
+                <button class="unregistered-btn secondary" id="continueAsGuestBtn">Continuar como invitado</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Sticky Navbar en la parte inferior -->
+    <nav class="sticky-nav">
+        <a href="index.html"><i class="fi fi-rr-home"></i> Inicio</a>
+        <a href="menu.html"><i class="fi fi-rr-beer"></i> Pedir aquí</a>
+        <a href="#" class="sticky-cart-btn"><i class="fi fi-rr-shopping-cart"></i> Carrito</a>
+        <a href="#"><i class="fi fi-rr-user"></i> Cuenta</a>
+    </nav>
+
+    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="false">
+        <span class="icon-light" aria-hidden="true">🌙</span>
+        <span class="icon-dark" aria-hidden="true">☀️</span>
+    </button>
+
+
+
+    <script src="Public/js/app-storage.js"></script>
+    <script src="Public/js/menu.js"></script>
+    <script src="Public/js/inicio.js"></script>
+    <script src="Public/js/accesibilidad.js"></script>
+
+
+</body>
+</html>

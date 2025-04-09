@@ -1,0 +1,531 @@
+@font-face {
+    font-family: "Honey Money";
+    src: url('fonts/HoneyMoney.ttf') format("truetype");
+    font-display: swap;
+}
+
+:root {
+    /* Colores del modo claro */
+    --color-background: #FAF5E1;
+    --color-primary: #5A2E1B;
+    --color-accent: #3399CC;
+    --border-color: #3399CC;
+    --color-accent-hover: #2B80AD;
+    --color-yellow-light: #E6B800;
+    --color-yellow-light-dark: #B38A00;
+
+    /* Colores del modo oscuro */
+    --color-background-dark: #1a1a1a;
+    --color-header-dark: #2d2d2d;
+    --color-primary-dark: #7A4C2E;
+    --color-accent-dark: #4D87D0;
+    --color-yellow-dark: #F1C200;
+    --color-yellow-dark-dark: #C78A00;
+
+    /* Colores adicionales */
+    --color-white: white;
+    --color-gray: #eeeeee;
+    --color-gray-medium: #DDDDDD;
+    --color-border: #c5c5c5;
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
+    --error-color: red;
+    --error-color-error: #FF5E5E;
+
+    /* Colores adicionales para el modo oscuro */
+    --color-border-dark: #5c5c5c;
+    --color-background-button-dark: #2d2d2d;
+    --color-button-hover-dark: #3d3d3d;
+}
+
+body {
+    background-color: var(--color-yellow-light);
+    font-family: "Honey Money";
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-button {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: transform 0.2s;
+    z-index: 100;
+}
+
+.back-button:hover {
+    transform: translateX(-3px);
+}
+
+.login-title {
+    color: var(--color-primary);
+    margin: 20px 0;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 1.8rem;
+}
+
+.login-box {
+    background-color: var(--color-background);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Logo */
+.logo {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    margin: 10px;
+}
+
+/* Slogan */
+.slogan {
+    color: var(--border-color);
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.form-group {
+    width: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.email, .passwoord {
+    color: var(--color-accent);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.6px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #b8dbe980;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+input:focus {
+    border-color: var(--color-accent-hover);
+    box-shadow: 0 0 0 2px rgba(102, 201, 226, 0.537);
+}
+
+button[type="submit"] {
+    background-color: var(--color-yellow-light);
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-family: inherit;
+    position: relative;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color-yellow-light-dark);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Spinner para botón de submit */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.register {
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+.register a {
+    color: var(--color-yellow-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 25px;
+    background-color: rgba(217, 235, 129, 0.15); /* Azul claro con transparencia */
+    display: inline-block;
+    border: 1.5px solid #F6D110;
+    margin-left: 10px;
+}
+
+.register a:hover {
+    background-color: #ecc4552f;
+}
+
+
+
+.guest {
+    text-align: center;
+}
+
+.guest a {
+    color: var(--color-yellow-light);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.guest a:hover {
+    color: var(--color-yellow-light-dark);
+}
+
+
+
+
+
+
+
+/* Modo oscuro - manual sin variables */
+body.dark-mode .register {
+    color: #F6D110; /* Amarillo */
+}
+
+body.dark-mode .register::before {
+    background: linear-gradient(90deg, transparent, #555, transparent); /* Gris */
+}
+
+body.dark-mode .register a {
+    color: var(--color-accent-dark);
+    border-color: #555; /* Gris */
+    background-color: rgba(129, 206, 235, 0.1); /* Azul muy transparente */
+}
+
+body.dark-mode .register a:hover {
+    background-color: rgba(129, 206, 235, 0.2); /* Azul semitransparente */
+    box-shadow: 0 4px 8px rgba(16, 246, 231, 0.1); /* Sombra amarilla */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    --text-color: #f0f0f0;
+    --light-bg: #2d2d2d;
+    --input-bg: #3d3d3d;  /* Gris oscuro */
+    --border-color: #555;  /* Borde gris */
+}
+
+.dark-mode .login-box {
+    background-color: var(--color-header-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode h1,
+.dark-mode .register {
+    color: var(--color-yellow-light);
+}
+
+.dark-mode .slogan,
+.dark-mode .register a,
+.dark-mode label {
+    color: var(--color-accent-dark);
+}
+
+.dark-mode input {
+    background-color: var(--input-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.dark-mode input:focus {
+    border-color: #777;  /* Borde un poco más claro al enfocar */
+    box-shadow: 0 0 0 2px rgba(119, 119, 119, 0.3);
+}
+
+.dark-mode button[type="submit"] {
+    background-color: #a85c34;
+}
+
+.dark-mode button[type="submit"]:hover {
+    background-color: #8a4a28;
+}
+
+/* Skip link para navegación por teclado */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    z-index: 100;
+    transition: top 0.3s;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus styles */
+:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.dark-mode :focus-visible {
+    outline-color: var(--color-yellow-light);
+}
+
+/* Selector de cuentas */
+.account-selector-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    background-color: rgba(142, 72, 37, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.account-selector-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.account-selector {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1.6px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    min-width: 200px;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.account-selector:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(142, 72, 37, 0.3);
+}
+
+.clear-account-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clear-account-btn:hover {
+    background-color: rgba(142, 72, 37, 0.2);
+    transform: scale(1.1);
+}
+
+.clear-account-btn:active {
+    transform: scale(0.95);
+}
+
+.dark-mode .account-selector-container {
+    background-color: rgba(246, 209, 16, 0.1);
+}
+
+.dark-mode .clear-account-btn {
+    color: var(--color-yellow-lightr);
+}
+
+.dark-mode .clear-account-btn:hover {
+    background-color: rgba(246, 209, 16, 0.2);
+}
+
+.dark-mode .error-message {
+    color: var(--error-color-error);
+}
+
+.dark-mode input.invalid {
+    border-color: var(--error-color-error) !important;
+}
+
+.spinner {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* Mensajes de error */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+    animation: fadeIn 0.3s ease;
+    height: 18px;
+}
+
+input.invalid {
+    border-color: var(--error-color) !important;
+    animation: shake 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+    .logo img {
+        width: 160px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        padding: 0 30px;
+    }
+    
+    .login-box {
+        padding: 35px;
+    }
+    
+    .slogan {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .logo img {
+        width: 180px;
+    }
+    
+    h1 {
+        padding: 0 40px;
+        font-size: 2.2rem;
+    }
+    
+    .login-box {
+        padding: 30px;
+    }
+    
+    .slogan {
+        font-size: 1.5rem;
+    }
+
+    .account-selector-container {
+        flex-wrap: nowrap;
+    }
+}

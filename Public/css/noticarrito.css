@@ -1,0 +1,54 @@
+:root {
+    /* Colores del modo claro */
+    --color-background: #FAF5E1;
+    --color-primary: #5A2E1B;
+    --color-accent: #3399CC;
+    --color-accent-hover: #2B80AD;
+    --color-yellow-light: #E6B800;
+    --color-yellow-light-dark: #B38A00;
+
+    /* Colores del modo oscuro */
+    --color-background-dark: #2d2d2d;
+    --color-primary-dark: #7A4C2E; /* Café ligeramente más claro */
+    --color-accent-dark: #4D87D0; /* Azul ajustado para mejor visibilidad */
+    --color-yellow-dark: #F1C200; /* Amarillo claro ajustado */
+    --color-yellow-dark-dark: #C78A00; /* Amarillo oscuro ajustado */
+
+    /* Colores adicionales */
+    --color-white: white;
+    --color-gray: #eeeeee;
+    --color-gray-medium: #DDDDDD;
+    --color-border: #c5c5c5;
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
+
+    /* Colores adicionales para el modo oscuro */
+    --color-border-dark: #5c5c5c;
+    --color-background-button-dark: #2d2d2d;
+    --color-button-hover-dark: #3d3d3d;
+}
+
+/* Notificación de carrito */
+.cart-notification {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-yellow-light);
+    color: var(--color-white);
+    padding: 12px 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3000;
+}
+
+.cart-notification.show {
+    opacity: 1;
+}
+
+/* Modo oscuro para notificación */
+.dark-mode .cart-notification {
+    background-color: var(--color-yellow-dark);
+    color: var(--color-white);
+}

@@ -1,0 +1,118 @@
+:root {
+    /* Colores del modo claro */
+    --color-background: #FAF5E1;
+    --color-primary: #5A2E1B;
+    --color-accent: #3399CC;
+    --color-yellow-light: #E6B800;
+    --color-yellow-dark: #CC9F00;
+
+    /* Colores del modo oscuro */
+    --color-background-dark: #2d2d2d;
+    --color-primary-dark: #7A4C2E; /* Café ligeramente más claro */
+    --color-accent-dark: #4D87D0; /* Azul ajustado para mejor visibilidad */
+    --color-yellow-light-dark: #F1C200; /* Amarillo claro ajustado */
+    --color-yellow-dark-dark: #C78A00; /* Amarillo oscuro ajustado */
+
+    /* Colores adicionales */
+    --color-white: #ffffff;
+    --color-gray: #eeeeee;
+    --color-gray-medium: #DDDDDD;
+    --color-border: #c5c5c5;
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
+
+    /* Colores adicionales para el modo oscuro */
+    --color-border-dark: #5c5c5c;
+    --color-background-button-dark: #2d2d2d;
+    --color-button-hover-dark: #3d3d3d;
+}
+
+
+/* Sticky Navbar en la parte inferior */
+.sticky-nav {
+    /* position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; */
+
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 0;      /* Pegado abajo */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1001;   /* Para que esté por encima de otros elementos */
+}
+
+.sticky-nav a {
+    text-decoration: none;
+    color: var(--color-yellow-light);
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+/* Efecto hover unificado para modo claro */
+.sticky-nav a:hover {
+    background-color: #e6b80023;
+    transform: translateY(-3px);
+}
+
+/* Estilos para los íconos */
+.sticky-nav i {
+    font-size: 24px;
+    color: var(--color-yellow-light);
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.sticky-nav {
+    display: flex; /* Mostrar sticky nav en móvil por defecto */
+}
+
+.dark-mode .sticky-nav {
+    /* position: sticky; */
+    background-color: var(--color-background-button-dark);
+}
+
+.dark-mode .sticky-nav a:hover {
+    background-color: rgba(122, 76, 46, 0.2);
+}
+
+.dark-mode .sticky-nav a:hover,
+.dark-mode .sticky-nav a:hover i {
+    color: var(--color-yellow-light-dark);
+    /* text-shadow: 0 0 8px rgba(241, 194, 0, 0.5); */
+}
+
+/* Efecto "glow" más pronunciado en hover */
+.dark-mode .sticky-nav a:hover {
+    box-shadow: 0 0 15px rgba(241, 194, 0, 0.3);
+}
+
+@media (max-width: 480px) {
+
+    .sticky-nav {
+        display: flex; /* Asegurar que se muestre en móvil */
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .sticky-nav {
+        display: none;
+    }
+}
