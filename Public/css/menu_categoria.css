@@ -58,15 +58,7 @@
     pointer-events: none;
 }
 
-/* .category-tabs-container::before {
-    left: 0;
-    background: linear-gradient(90deg, rgba(251,247,234,1) 0%, rgba(251,247,234,0) 100%);
-}
 
-.category-tabs-container::after {
-    right: 0;
-    background: linear-gradient(90deg, rgba(251,247,234,0) 0%, rgba(251,247,234,1) 100%);
-} */
 
 /* Estilos para las pestañas */
 .category-tabs {
@@ -132,7 +124,7 @@
 /* Espaciado especial para el primer y último botón */
 .tab-button:first-child {
     margin-left: 20px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     
 }
 
@@ -161,12 +153,13 @@
 /* Estilos para cada item del menú */
 .menu-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Cambiamos a columna */
     background: white;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .item-image {
@@ -241,32 +234,12 @@
     margin-bottom: 15px;
 }
 
-/* Efecto de desvanecimiento en los bordes */
-/* .category-tabs-container::before,
-.category-tabs-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 20px;
-    z-index: 2;
-    pointer-events: none;
-} */
 
-/* .category-tabs-container::before {
-    left: 0;
-    background: linear-gradient(90deg, rgba(251,247,234,1) 0%, rgba(251,247,234,0) 100%);
-}
-
-.category-tabs-container::after {
-    right: 0;
-    background: linear-gradient(90deg, rgba(251,247,234,0) 0%, rgba(251,247,234,1) 100%);
-} */
 
 
 
 /* Estilos para móviles pequeños (hasta 480px) */
-@media (max-width: 480px) {
+@media (max-width: 1023px) {
     .category-tabs {
         padding: 12px 0;
     }
@@ -277,9 +250,9 @@
         margin: 0 6px;
     }
     
-    .tab-button:first-child {
+    /* .tab-button:first-child {
         margin-left: 15px; 
-    }
+    } */
     
     .tab-button:last-child {
         margin-right: 15px;
@@ -313,10 +286,7 @@
         height: 180px;
     }
 
-    /* .category-tabs-container::before,
-    .category-tabs-container::after {
-        width: 40px;
-    } */
+
     
     .tab-button {
         padding: 10px 22px;

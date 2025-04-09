@@ -45,7 +45,7 @@
 }
 
 
-header {
+/* header {
     position: sticky;
     top: 0;
     left: 0;
@@ -58,7 +58,7 @@ header {
     background-color: var(--color-background);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .logo {
     position: absolute;
@@ -300,22 +300,12 @@ h1 {
     display: inline;
 }
 
-.menu-icon, .menu-text a, .carrito-text, .dropdown-menu {
-    display: none !important;
-}
-
-.menu-icon, 
-.menu-text, 
-.carrito-text {
-    display: none;
-}
-
 .sticky-nav {
     display: flex; /* Mostrar sticky nav en móvil por defecto */
 }
 
 /* Estilos responsivos */
-@media (max-width: 480px) {    
+@media (max-width: 1023px) {    
     /* Centrar el logo */
     .logo {
         position: static !important;
@@ -365,10 +355,10 @@ h1 {
         height: auto;
     }
 
-    .menu-icon, 
     .menu-text, 
-    .carrito-text {
-        display: none;
+    .carrito-text,
+    .menu-icon {
+        display: none !important;
     }
 
     .carrito-text {
@@ -381,12 +371,8 @@ h1 {
     .sticky-nav {
         display: none; /* Ocultar sticky nav en desktop */
     }
-    
-    .menu-icon, .menu-text, .carrito-text {
-        display: block; /* Mostrar elementos del menú desktop */
-    }
 
-    .menu-icon {
+    /* .menu-icon {
         display: block;
         font-size: 30px;
         left: 10px;
@@ -399,16 +385,16 @@ h1 {
         color: var(--color-yellow-light);
         margin-left: 2%;
     
-        margin-right: 10px; /* Espacio entre ícono y texto */
+        margin-right: 10px;
     }
     
     .menu-icon:hover {
-        /* transform: scale(1.1); */
+
         color: var(--color-yellow-light-dark);
     }
 
-    /* Texto "Carrito" */
     .carrito-text {
+
         display: block;
 
         font-weight: bold;
@@ -419,14 +405,16 @@ h1 {
         padding: 10px 15px;
 
         border-radius: 4px;
-        display: block;
+
+        right: 20px;
+
     }
 
     .carrito-text:hover {
         color: var(--color-yellow-light-dark);;
     }
 
-    /* Texto "Menú" */
+
     .menu-text a {
         font-weight: bold;
         cursor: pointer;
@@ -454,7 +442,7 @@ h1 {
     .dark-mode .menu-icon:hover, .dark-mode .menu-text a:hover, .dark-mode .carrito-text:hover {
     
         color: var(--color-yellow-dark-dark);
-    }
+    } */
 
 }
 
