@@ -110,7 +110,7 @@
 
 @media (max-width: 1023px) {
     .imagen-izquierda img {
-        max-width: 80px;
+        max-width: 150px;
     }
 
     .promo {

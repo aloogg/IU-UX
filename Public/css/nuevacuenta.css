@@ -133,7 +133,7 @@ input:focus {
 
 button[type="submit"] {
     background-color: var(--color-yellow-light);
-    color: white;
+    color: var(--color-white);
     border: none;
     padding: 14px;
     border-radius: 10px;
@@ -144,7 +144,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-yellow-light-dark);
 }
 
 /* Enlace de login */
@@ -172,7 +172,7 @@ button[type="submit"]:hover {
 .login-link a {
     color: var(--color-yellow-light);
     text-decoration: none;
-    font-weight: 600;
+    /* font-weight: 600; */
     padding: 5px 10px;
     border-radius: 15px;
     transition: all 0.3s ease;
@@ -254,7 +254,11 @@ body.dark-mode {
 }
 
 .dark-mode button[type="submit"] {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-yellow-dark);
+}
+
+.dark-mode button[type="submit"]:hover {
+    background-color: var(--color-yellow-dark-dark);
 }
 
 .dark-mode .login-link p {
@@ -263,6 +267,8 @@ body.dark-mode {
 
 .dark-mode .login-link a {
     color: var(--color-accent-dark);
+    border-color: #555; /* Gris */
+    background-color: rgba(129, 206, 235, 0.1); /* Azul muy transparente */
 }
 
 /* Responsive */
@@ -285,7 +291,7 @@ body.dark-mode .login-link::before {
 }
 
 body.dark-mode .login-link a {
-    color: #81CEEB;
+    color: var(--color-accent-dark);
 }
 
 body.dark-mode .login-link a:hover {
@@ -324,12 +330,12 @@ body.dark-mode {
 
 .dark-mode label,
 .dark-mode .terms {
-    color: #81CEEB;
+    color: var(--color-accent-dark);
 }
 
 .dark-mode input {
     background-color: #3d3d3d;
-    border-color: #81CEEB;
+    border-color: var(--color-accent-dark);
     color: #f0f0f0;
 }
 
@@ -392,4 +398,17 @@ body.dark-mode {
 .dark-mode button:focus,
 .dark-mode a:focus {
     box-shadow: 0 0 0 2px #8E4825;
+}
+
+
+
+
+body.dark-mode .login-link a:hover {
+    background-color: rgba(129, 206, 235, 0.2); /* Azul semitransparente */
+    box-shadow: 0 4px 8px rgba(16, 246, 231, 0.1); /* Sombra amarilla */
+}
+
+body .login-link a:hover {
+
+    box-shadow: 0 4px 8px rgba(246, 150, 16, 0.256); /* Sombra amarilla */
 }

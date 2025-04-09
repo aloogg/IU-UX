@@ -220,7 +220,7 @@ button[type="submit"]:active {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
-    padding: 8px 15px;
+    padding: 4px 8px;
     border-radius: 25px;
     background-color: rgba(217, 235, 129, 0.15); /* Azul claro con transparencia */
     display: inline-block;
@@ -273,6 +273,11 @@ body.dark-mode .register a {
 body.dark-mode .register a:hover {
     background-color: rgba(129, 206, 235, 0.2); /* Azul semitransparente */
     box-shadow: 0 4px 8px rgba(16, 246, 231, 0.1); /* Sombra amarilla */
+}
+
+body .register a:hover {
+
+    box-shadow: 0 4px 8px rgba(246, 150, 16, 0.256); /* Sombra amarilla */
 }
 
 
@@ -328,11 +333,11 @@ body.dark-mode {
 }
 
 .dark-mode button[type="submit"] {
-    background-color: #a85c34;
+    background-color: var(--color-yellow-dark);
 }
 
 .dark-mode button[type="submit"]:hover {
-    background-color: #8a4a28;
+    background-color: var(--color-yellow-dark-dark);
 }
 
 /* Skip link para navegación por teclado */
