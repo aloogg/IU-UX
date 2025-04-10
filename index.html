@@ -36,10 +36,12 @@
 
 <body>
 
+    <a href="index.html" class="skip-link">Saltar al contenido principal</a>
+
     <div class="fondo">
 
         <!-- esto es para el menu hamburguesa -->
-        <header>
+        <!-- <header>
             <div class="menu-icon" id="menuIcon">&#9776;</div>
 
             <div class="logo">
@@ -52,7 +54,7 @@
 
             <div class="carrito-text">Carrito</div>
 
-            <nav class="dropdown-menu" id="dropdownMenu">
+            <nav class="dropdown-menu" id="dropdownMenu" role="navigation" aria-label="Menú principal">
                 <h3>Menú Principal</h3>
                 <ul>
                     <li><a href="#">Inicio</a></li>
@@ -60,10 +62,57 @@
                     <li><a href="nuevacuenta.html">Nueva Cuenta</a></li>
                 </ul>
             </nav>
+        </header> -->
+
+        <!-- en este no funciona el menu-icon -->
+        <!-- <header>
+            <div class="menu-icon" id="menuIcon" role="button" aria-expanded="false" aria-controls="dropdownMenu">&#9776;</div>
+        
+            <div class="logo">
+                <img src="Imagenes/Logo3.png" alt="Cantina Chichilo">
+            </div>
+        
+            <div class="menu-text" id="menuText">
+                <a href="menu.html">Menú</a>
+            </div>
+        
+            <div class="carrito-text" tabindex="0">Carrito</div>
+        
+            <nav class="dropdown-menu" id="dropdownMenu" role="navigation" aria-label="Menú principal" style="display: none;">
+                <h3>Menú Principal</h3>
+                <ul>
+                    <li role="menuitem"><a href="#">Inicio</a></li>
+                    <li role="menuitem"><a href="#contacto">Contactanos</a></li>
+                    <li role="menuitem"><a href="nuevacuenta.html">Nueva Cuenta</a></li>
+                </ul>
+            </nav>
+        </header> -->
+
+        <header>
+            <div class="menu-icon" id="menuIcon" role="button" tabindex="0" aria-expanded="false" aria-controls="dropdownMenu">&#9776;</div>
+        
+            <div class="logo">
+                <img src="Imagenes/Logo3.png" alt="Cantina Chichilo">
+            </div>
+        
+            <div class="menu-text" id="menuText">
+                <a href="menu.html">Menú</a>
+            </div>
+        
+            <div class="carrito-text" tabindex="0">Carrito</div>
+        
+            <nav class="dropdown-menu" id="dropdownMenu" role="navigation" aria-label="Menú principal" style="display: none;">
+                <h3>Menú Principal</h3>
+                <ul>
+                    <li role="menuitem"><a href="#">Inicio</a></li>
+                    <li role="menuitem"><a href="#contacto">Contactanos</a></li>
+                    <li role="menuitem"><a href="nuevacuenta.html">Nueva Cuenta</a></li>
+                </ul>
+            </nav>
         </header>
 
         <!-- Página principal -->
-        <main>
+        <main id="main-content" tabindex="-1">
             <!-- Sección de promoción -->
             <section class="promo">
                 <div class="contenido-centrado">
@@ -75,7 +124,7 @@
                             data-precio="119">Agregar al carrito</button>
                 </div>
                 <div class="imagen-izquierda">
-                    <img src="Imagenes/Helado.png" alt="Helado">
+                    <img src="Imagenes/Helado.png" alt="Helado" loading="lazy">
                 </div>
             </section>
             
@@ -89,7 +138,7 @@
                             data-precio="129">Agregar al carrito</button>
                 </div>
                 <div class="imagen-izquierda">
-                    <img src="Imagenes/Mac.png" alt="Desayuno">
+                    <img src="Imagenes/Mac.png" alt="Desayuno" loading="lazy">
                 </div>
             </section>
             
@@ -103,22 +152,22 @@
                             data-precio="149">Agregar al carrito</button>
                 </div>
                 <div class="imagen-izquierda">
-                    <img src="Imagenes/Sopa.png" alt="Comida">
+                    <img src="Imagenes/Sopa.png" alt="Comida" loading="lazy">
                 </div>
             </section>
         </main>
     </div>
 
 <!-- Overlay del menú de producto -->
-<div class="product-overlay" id="productOverlay">
+<div class="product-overlay" id="productOverlay" role="dialog" aria-modal="true" aria-labelledby="productTitle">
     <div class="product-details">
         <button class="close-btn" id="closeProductBtn">&times;</button>
         <h2 id="productTitle"></h2>
         <p id="productDescription"></p>
         <div class="quantity-selector">
-            <button class="quantity-btn minus">-</button>
+            <button class="quantity-btn minus" aria-label="Reducir cantidad">-</button>
             <span id="productQuantity">1</span>
-            <button class="quantity-btn plus">+</button>
+            <button class="quantity-btn plus" aria-label="Aumentar cantidad">+</button>
         </div>
         <div class="price-section">
             <span class="total-price" id="productPrice"></span>

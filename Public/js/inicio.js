@@ -62,31 +62,101 @@ function handleThemeToggleFocus() {
 }
 
 // Función para manejar el menú hamburguesa
-function setupHamburgerMenu() {
-    const menuIcon = document.getElementById('menuIcon');
-    const dropdownMenu = document.getElementById('dropdownMenu');
+// function setupHamburgerMenu() {
+//     const menuIcon = document.getElementById('menuIcon');
+//     const dropdownMenu = document.getElementById('dropdownMenu');
 
-    if (menuIcon && dropdownMenu) {
-        menuIcon.addEventListener('click', function(e) {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('active');
-            this.classList.toggle('active');
-        });
+//     if (menuIcon && dropdownMenu) {
+//         menuIcon.addEventListener('click', function(e) {
+//             e.stopPropagation();
+//             dropdownMenu.classList.toggle('active');
+//             this.classList.toggle('active');
+//         });
 
-        // Cerrar el menú al hacer clic fuera de él
-        document.addEventListener('click', function() {
-            if (dropdownMenu.classList.contains('active')) {
-                dropdownMenu.classList.remove('active');
-                menuIcon.classList.remove('active');
-            }
-        });
+//         // Cerrar el menú al hacer clic fuera de él
+//         document.addEventListener('click', function() {
+//             if (dropdownMenu.classList.contains('active')) {
+//                 dropdownMenu.classList.remove('active');
+//                 menuIcon.classList.remove('active');
+//             }
+//         });
 
-        // Evitar que el menú se cierre al hacer clic dentro de él
-        dropdownMenu.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-    }
-}
+//         // Evitar que el menú se cierre al hacer clic dentro de él
+//         dropdownMenu.addEventListener('click', function(e) {
+//             e.stopPropagation();
+//         });
+//     }
+// }
+
+// Función para manejar el menú hamburguesa
+// function setupHamburgerMenu() {
+//     const menuIcon = document.getElementById('menuIcon');
+//     const dropdownMenu = document.getElementById('dropdownMenu');
+
+//     if (menuIcon && dropdownMenu) {
+//         // Agregar tabindex para que el icono sea accesible
+//         menuIcon.setAttribute('tabindex', '0');
+//         menuIcon.setAttribute('role', 'button');
+//         menuIcon.setAttribute('aria-expanded', 'false');
+//         menuIcon.setAttribute('aria-controls', 'dropdownMenu');
+
+//         menuIcon.addEventListener('click', function(e) {
+//             e.stopPropagation();
+//             toggleMenu();
+//         });
+
+//         // Manejar el evento de teclado para abrir/cerrar el menú
+//         menuIcon.addEventListener('keydown', function(e) {
+//             if (e.key === 'Enter' || e.key === ' ') {
+//                 e.preventDefault();
+//                 toggleMenu();
+//             }
+//         });
+
+//         // Cerrar el menú al hacer clic fuera de él
+//         document.addEventListener('click', function() {
+//             if (dropdownMenu.classList.contains('active')) {
+//                 closeMenu();
+//             }
+//         });
+
+//         // Evitar que el menú se cierre al hacer clic dentro de él
+//         dropdownMenu.addEventListener('click', function(e) {
+//             e.stopPropagation();
+//         });
+
+//         // Manejar el cierre del menú con Escape
+//         dropdownMenu.addEventListener('keydown', function(e) {
+//             if (e.key === 'Escape') {
+//                 closeMenu();
+//                 menuIcon.focus();
+//             }
+//         });
+
+//         function toggleMenu() {
+//             const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
+//             menuIcon.setAttribute('aria-expanded', !isExpanded);
+//             dropdownMenu.classList.toggle('active');
+
+//             if (!isExpanded) {
+//                 dropdownMenu.style.display = 'block'; // Asegúrate de que el menú se muestre
+//                 menuIcon.classList.add('active');
+//                 dropdownMenu.querySelectorAll('[role="menuitem"]').forEach(item => item.setAttribute('tabindex', '0'));
+//                 dropdownMenu.querySelector('[role="menuitem"]').focus(); // Enfocar el primer elemento del menú
+//             } else {
+//                 closeMenu();
+//             }
+//         }
+
+//         function closeMenu() {
+//             menuIcon.setAttribute('aria-expanded', 'false');
+//             dropdownMenu.classList.remove('active');
+//             dropdownMenu.style.display = 'none'; // Asegúrate de que el menú se oculte
+//             menuIcon.classList.remove('active');
+//             dropdownMenu.querySelectorAll('[role="menuitem"]').forEach(item => item.setAttribute('tabindex', '-1'));
+//         }
+//     }
+// }
 
 // Función para mostrar notificación de carrito
 function showCartNotification(message) {
@@ -563,6 +633,27 @@ function setupUnregisteredOverlay() {
     });
 }
 
+function lazyImage() {
+    // Observador para lazy loading avanzado
+    if ('IntersectionObserver' in window) {
+        const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
+        
+        const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src || lazyImage.src;
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    }
+}
+
 // Inicialización cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', function() {
     initializeThemeSwitcher();
@@ -574,6 +665,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateAccountLinks();
     checkAuthStatus();
     setupUnregisteredOverlay();
+    lazyImage();
     
     if (typeof ThemeManager !== 'undefined') {
         ThemeManager.init();

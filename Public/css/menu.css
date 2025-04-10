@@ -71,10 +71,6 @@
     height: 80px;
 }
 
-
-
-
-
 /* Botón */
 .ordenar-btn {
     background-color: var(--color-yellow-light);
@@ -102,6 +98,18 @@
     color: var(--color-accent-dark);
 }
 
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+}
+.skip-link:focus {
+    top: 0;
+}
 
 /* Menú desplegable - Ajustado para sticky header */
 .dropdown-menu {

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initThemeToggle();
     initFocusManagement();
     initInteractiveElements();
+    setupHamburgerMenu();
 });
 
 // 1. Manejo del menú hamburguesa (solo si existe en la página)
@@ -55,6 +56,27 @@ function initMenu() {
         }
     });
     
+    // function toggleMenu() {
+    //     const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
+    //     menuIcon.setAttribute('aria-expanded', !isExpanded);
+    //     dropdownMenu.style.display = isExpanded ? 'none' : 'block';
+        
+    //     if (!isExpanded) {
+    //         menuItems.forEach(item => item.setAttribute('tabindex', '0'));
+    //         menuItems[0]?.focus();
+    //     } else {
+    //         menuItems.forEach(item => item.setAttribute('tabindex', '-1'));
+    //     }
+    // }
+
+
+    
+    // function closeMenu() {
+    //     menuIcon.setAttribute('aria-expanded', 'false');
+    //     dropdownMenu.style.display = 'none';
+    //     menuItems.forEach(item => item.setAttribute('tabindex', '-1'));
+    // }
+
     function toggleMenu() {
         const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
         menuIcon.setAttribute('aria-expanded', !isExpanded);
@@ -67,7 +89,7 @@ function initMenu() {
             menuItems.forEach(item => item.setAttribute('tabindex', '-1'));
         }
     }
-    
+
     function closeMenu() {
         menuIcon.setAttribute('aria-expanded', 'false');
         dropdownMenu.style.display = 'none';
@@ -75,7 +97,196 @@ function initMenu() {
     }
 }
 
-// 2. Manejo genérico de overlays/modales
+
+// function setupHamburgerMenu() {
+//     const menuIcon = document.getElementById('menuIcon');
+//     const dropdownMenu = document.getElementById('dropdownMenu');
+//     const carritoText = document.querySelector('.carrito-text');
+
+//     if (menuIcon && dropdownMenu) {
+//         // Agregar tabindex para que el icono sea accesible
+//         menuIcon.setAttribute('tabindex', '0');
+//         menuIcon.setAttribute('role', 'button');
+//         menuIcon.setAttribute('aria-expanded', 'false');
+//         menuIcon.setAttribute('aria-controls', 'dropdownMenu');
+
+//         menuIcon.addEventListener('click', function(e) {
+//             e.stopPropagation();
+//             toggleMenu();
+//         });
+
+//         // Manejar el evento de teclado para abrir/cerrar el menú
+//         menuIcon.addEventListener('keydown', function(e) {
+//             if (e.key === 'Enter' || e.key === ' ') {
+//                 e.preventDefault();
+//                 toggleMenu();
+//             }
+//         });
+
+//         // Agregar evento de teclado al carrito
+//         carritoText.addEventListener('keydown', function(e) {
+//             if (e.key === 'Enter' || e.key === ' ') {
+//                 e.preventDefault();
+//                 // Aquí puedes definir la acción que deseas realizar
+//                 // Por ejemplo, redirigir a la página del carrito
+//                 window.location.href = 'carrito.html'; // Cambia esto a la URL de tu carrito
+//             }
+//         });
+
+//         // Cerrar el menú al hacer clic fuera de él
+//         document.addEventListener('click', function() {
+//             if (dropdownMenu.classList.contains('active')) {
+//                 closeMenu();
+//             }
+//         });
+
+//         // Evitar que el menú se cierre al hacer clic dentro de él
+//         dropdownMenu.addEventListener('click', function(e) {
+//             e.stopPropagation();
+//         });
+
+//         // Manejar el cierre del menú con Escape
+//         dropdownMenu.addEventListener('keydown', function(e) {
+//             if (e.key === 'Escape') {
+//                 closeMenu();
+//                 menuIcon.focus();
+//             }
+//         });
+
+//         function toggleMenu() {
+//             const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
+//             menuIcon.setAttribute('aria-expanded', !isExpanded);
+//             dropdownMenu.classList.toggle('active');
+
+//             if (!isExpanded) {
+//                 dropdownMenu.style.display = 'block'; // Asegúrate de que el menú se muestre
+//                 menuIcon.classList.add('active');
+//                 dropdownMenu.querySelectorAll('[role="menuitem"]').forEach(item => item.setAttribute('tabindex', '0'));
+//                 dropdownMenu.querySelector('[role="menuitem"]').focus(); // Enfocar el primer elemento del menú
+//             } else {
+//                 closeMenu();
+//             }
+//         }
+
+//         function closeMenu() {
+//             menuIcon.setAttribute('aria-expanded', 'false');
+//             dropdownMenu.classList.remove('active');
+//             dropdownMenu.style.display = 'none'; // Asegúrate de que el menú se oculte
+//             menuIcon.classList.remove('active');
+//             dropdownMenu.querySelectorAll('[role="menuitem"]').forEach(item => item.setAttribute('tabindex', '-1'));
+//         }
+//     }
+// }
+
+function setupHamburgerMenu() {
+    const menuIcon = document.getElementById('menuIcon');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const carritoText = document.querySelector('.carrito-text');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+
+    if (menuIcon && dropdownMenu) {
+        // Agregar tabindex para que el icono sea accesible
+        menuIcon.setAttribute('tabindex', '0');
+        menuIcon.setAttribute('role', 'button');
+        menuIcon.setAttribute('aria-expanded', 'false');
+        menuIcon.setAttribute('aria-controls', 'dropdownMenu');
+
+        menuIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Manejar el evento de teclado para abrir/cerrar el menú
+        menuIcon.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        // Agregar evento de teclado al carrito
+        carritoText.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                showCartOverlay();
+            }
+        });
+
+        // Mostrar el overlay del carrito al hacer clic
+        carritoText.addEventListener('click', function() {
+            showCartOverlay();
+        });
+
+        // Cerrar el menú al hacer clic fuera de él
+        document.addEventListener('click', function() {
+            if (dropdownMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Evitar que el menú se cierre al hacer clic dentro de él
+        dropdownMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Manejar el cierre del menú con Escape
+        dropdownMenu.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMenu();
+                menuIcon.focus();
+            }
+        });
+
+        // Cerrar el overlay del carrito
+        closeCartBtn.addEventListener('click', function() {
+            closeCartOverlay();
+        });
+
+        // Cerrar el overlay del carrito con Escape
+        cartOverlay.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCartOverlay();
+            }
+        });
+
+        function toggleMenu() {
+            const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
+            menuIcon.setAttribute('aria-expanded', !isExpanded);
+            dropdownMenu.classList.toggle('active');
+
+            if (!isExpanded) {
+                dropdownMenu.style.display = 'block'; // Asegúrate de que el menú se muestre
+                menuIcon.classList.add('active');
+                dropdownMenu.querySelectorAll('[role="menuitem"]').forEach(item => item.setAttribute('tabindex', '0'));
+                dropdownMenu.querySelector('[role="menuitem"]').focus(); // Enfocar el primer elemento del menú
+            } else {
+                closeMenu();
+            }
+        }
+
+        function closeMenu() {
+            menuIcon.setAttribute('aria-expanded', 'false');
+            dropdownMenu.classList.remove('active');
+            dropdownMenu.style.display = 'none'; // Asegúrate de que el menú se oculte
+            menuIcon.classList.remove('active');
+            dropdownMenu.querySelectorAll('[role="menuitem"]').forEach(item => item.setAttribute('tabindex', '-1'));
+        }
+
+        function showCartOverlay() {
+            cartOverlay.style.display = 'block'; // Muestra el overlay
+            cartOverlay.setAttribute('aria-hidden', 'false'); // Asegúrate de que sea accesible
+            cartOverlay.focus(); // Enfocar el overlay si es necesario
+        }
+
+        function closeCartOverlay() {
+            cartOverlay.style.display = 'none'; // Oculta el overlay
+            cartOverlay.setAttribute('aria-hidden', 'true'); // Asegúrate de que no sea accesible
+            carritoText.focus(); // Regresar el foco al carrito
+        }
+    }
+}
+
 function initOverlays() {
     // Selector para identificar overlays (puedes ajustarlo según tus clases)
     const overlays = document.querySelectorAll('[role="dialog"], .overlay, [aria-modal="true"]');
