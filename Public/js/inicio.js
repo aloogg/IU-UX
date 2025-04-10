@@ -243,7 +243,8 @@ function setupProductDetails() {
     const plusBtn = document.querySelector('.quantity-btn.plus');
     const minusBtn = document.querySelector('.quantity-btn.minus');
     const addToCartBtn = document.querySelector('.add-to-cart-btn');
-    
+    const payBtn = document.querySelector('.pay-btn');
+
     let currentProduct = null;
     let quantity = 1;
     let price = 0;
@@ -294,7 +295,7 @@ function setupProductDetails() {
         productPrice.textContent = `$${total.toFixed(2)}`;
     }
     
-    // Agregar al carrito - VERSIÓN CORREGIDA
+    // Agregar al carrito
     addToCartBtn.addEventListener('click', function() {
         if (!currentProduct) return;
         
@@ -330,6 +331,43 @@ function setupProductDetails() {
         // ACTUALIZAR LA VISTA DEL CARRITO (FALTABA ESTA LÍNEA)
         updateCartDisplay();
     });
+
+    // Configurar el botón de pagar
+    payBtn.addEventListener('click', function() {
+        // Cerrar el overlay del producto primero
+        productOverlay.style.display = 'none';
+        
+        // Verificar si el usuario está logueado
+        if (!AppStorage.isLoggedIn()) {
+            // Mostrar overlay de usuario no registrado
+            const unregisteredOverlay = document.getElementById('unregisteredOverlay');
+            unregisteredOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Si está logueado, preparar el pago directo
+            const product = {
+                name: currentProduct,
+                description: productDescription.textContent,
+                unitPrice: price,
+                quantity: quantity
+            };
+            
+            // Guardar en localStorage como un carrito con un solo producto
+            localStorage.setItem('cart', JSON.stringify([product]));
+            localStorage.setItem('cartSubtotal', (price * quantity).toFixed(2));
+            localStorage.setItem('cartShipping', '30.00');
+            localStorage.setItem('cartTotal', (price * quantity + 30).toFixed(2));
+            
+            // Redirigir a la página de pago
+            window.location.href = 'pagar.html';
+        }
+        
+        // Resetear valores
+        quantity = 1;
+        productQuantity.textContent = '1';
+        updatePrice();
+    });
+
 }
 
 // Función para configurar el carrito

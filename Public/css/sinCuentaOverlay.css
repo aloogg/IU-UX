@@ -102,11 +102,37 @@
     background-color: var(--color-accent-hover);
 }
 
+
+
+
+.product-overlay, .unregistered-overlay {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+/* .product-overlay:not(.active), 
+.unregistered-overlay:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+} */
+
+
+.product-overlay.active, 
+.unregistered-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* .unregistered-overlay {
+    z-index: 1001;
+} */
+
+/* F6D00D //amarillo */
+
 .dark-mode .unregistered-container {
     background-color: var(--color-background-dark);
 }
-
-/* F6D00D //amarillo */
 
 .dark-mode .unregistered-container h3 {
     color: var(--color-accent-dark)
