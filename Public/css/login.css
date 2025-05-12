@@ -38,7 +38,7 @@
 }
 
 body {
-    background-color: var(--color-yellow-light);
+    background-color: var(--color-accent);
     font-family: "Honey Money";
     margin: 0;
     padding: 0;
@@ -74,7 +74,7 @@ body {
 }
 
 .login-title {
-    color: var(--color-primary);
+    color: var(--color-white);
     margin: 20px 0;
     width: 100%;
     max-width: 100%;

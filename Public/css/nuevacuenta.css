@@ -43,7 +43,7 @@
 
 /* Estructura principal */
 body {
-    background-color: var(--color-yellow-light);
+    background-color: var(--color-accent);
     font-family: 'Honey Money'; 
     margin: 0;
     padding: 0;
@@ -92,7 +92,7 @@ body {
 
 /* Títulos */
 h1 {
-    color: var(--color-primary);
+    color: var(--color-white);
     font-size: 1.8rem;
     text-align: center;
     margin: 20px auto;
